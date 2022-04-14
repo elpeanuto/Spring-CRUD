@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <link th:href="@{/floating-button.css}" href="static/floating-button.css" rel="stylesheet">
+    <link th:href="@{/text.css}" href="static/text.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <p class="text" th:text="${'Name: ' +person.getName()}">VALUE</p>
+    <p class="text" th:text="${'Age: ' + person.getAge()}">VALUE</p>
+    <p class="text" th:text="${'Email: ' + person.getEmail()}">VALUE</p>
+
+    <a class="floating-button" th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
+
+    <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+        <input type="submit" value="Delete"/>
+    </form>
+
+
+</body>
+</html>

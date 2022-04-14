@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link th:href="@{/floating-button.css}" href="static/floating-button.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="center">
+    <div th:each="person : ${people}">
+        <a class="floating-button"
+           th:href="@{/people/{id}(id=${person.getId()})}"
+           th:text="${person.getName() + ', ' + person.getAge()}">user</a>
+    </div>
+    <br/>
+    <hr/>
+
+
+    <a class="floating-button" href="/people/new">Create</a>
+
+</div>
+
+</body>
+</html>
